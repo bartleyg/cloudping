@@ -59,8 +59,10 @@
     // clear old pings
     pingSequence = [];
     pingInProcess = true;
-    // ping all endpoints and wait
+    // ping all endpoints to warm them up
 		let endpointsPing = await pingAll();
+    // ping all endpoints again and keep the results
+		endpointsPing = await pingAll();
 
 		// build ping object for display and get best ping
 		let lowest_duration = Number.MAX_SAFE_INTEGER;
